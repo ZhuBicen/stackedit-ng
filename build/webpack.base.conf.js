@@ -5,14 +5,18 @@ var config = require('../config')
 var VueLoaderPlugin = require('vue-loader/lib/plugin')
 var vueLoaderConfig = require('./vue-loader.conf')
 var StylelintPlugin = require('stylelint-webpack-plugin')
-const cliProgress = require('cli-progress');
-const bar1 = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
-bar1.start(100, 0);
+var bar1 = null;
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 const handler = (percentage, message, ...args) => {
+
+  if (bar1 === null) {
+    const cliProgress = require('cli-progress');
+    bar1 = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
+    bar1.start(100, 0);
+  }
   // e.g. Output each progress message directly to the console:
   bar1.update(percentage * 100);
   if (percentage * 100 >= 100) {
