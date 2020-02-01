@@ -10,7 +10,7 @@ const {
   contentText,
   contentProperties,
 } = utils.queryParams;
-const isLight = origin && window.parent;
+const isLight = true;
 
 export default {
   setReady() {

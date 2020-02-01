@@ -18,7 +18,7 @@ import Notification from './Notification';
 import ContextMenu from './ContextMenu';
 import SplashScreen from './SplashScreen';
 import syncSvc from '../services/syncSvc';
-import networkSvc from '../services/networkSvc';
+// import networkSvc from '../services/networkSvc';
 import tempFileSvc from '../services/tempFileSvc';
 import store from '../store';
 import './common/vueGlobals';
@@ -53,7 +53,7 @@ export default {
   async created() {
     try {
       await syncSvc.init();
-      await networkSvc.init();
+      // await networkSvc.init();
       this.ready = true;
       tempFileSvc.setReady();
     } catch (err) {
